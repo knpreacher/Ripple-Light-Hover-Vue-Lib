@@ -66,12 +66,13 @@ const wrapperComponent = defineComponent((_props, ctx) => {
         ctx.slots.default?.()
     ])
 })
+
+defineSlots<{
+    default: (props: { cls: string, wrapper: any }) => any
+}>()
 </script>
 
 <template>
-    <div>
-        {{ size }}
-    </div>
     <div class="ripple-light-container" ref="rippleContainer">
         <slot v-bind="{ cls: 'ripple-light-item', wrapper: wrapperComponent }"></slot>
     </div>
