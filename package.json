@@ -1,0 +1,45 @@
+{
+  "name": "kn-circle-light",
+  "private": false,
+  "version": "0.0.1",
+  "type": "module",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    },
+    "./kn-circle-light.css": "./dist/kn-circle-light.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --p tsconfig.lib.json && vite build",
+    "preview": "vite preview"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.18"
+  },
+  "devDependencies": {
+    "vue": "^3.5.18",
+    "@types/node": "^24.3.0",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/tsconfig": "^0.7.0",
+    "vite-plugin-dts": "^4.5.4",
+    "typescript": "~5.8.3",
+    "vite": "^7.1.2",
+    "vue-tsc": "^3.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/knpreacher/Ripple-Light-Hover-Vue-Lib.git"
+  },
+  "bugs": {
+    "url": "https://github.com/knpreacher/Ripple-Light-Hover-Vue-Lib/issues"
+  },
+  "homepage": "https://github.com/knpreacher/Ripple-Light-Hover-Vue-Lib#readme"
+}
