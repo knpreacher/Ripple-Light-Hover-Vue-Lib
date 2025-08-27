@@ -24,7 +24,8 @@ const wrapperProps = ref({
       </label>
     </div>
     <div>{{ wrapperProps }}</div>
-    <circle-light-wrapper #default="{ cls, wrapper }" v-bind="wrapperProps" wrapper-extra-class="rounded">
+    <div style="margin: 32px; position: relative;">
+      <circle-light-wrapper #default="{ cls, wrapper }" v-bind="wrapperProps" wrapper-extra-class="rounded">
       <div class="row">
         <div class="col" v-for="i in 40" :key="i">
           <component :is="wrapper">
@@ -35,6 +36,7 @@ const wrapperProps = ref({
         </div>
       </div>
     </circle-light-wrapper>
+    </div>
   </div>
 </template>
 

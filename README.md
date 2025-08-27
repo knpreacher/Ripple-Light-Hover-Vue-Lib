@@ -2,6 +2,14 @@
 
 ## Example
 
+Import styles
+
+```js
+import 'kn-circle-light/kn-circle-light.css'
+```
+
+Usage
+
 ```html
 <circle-light-wrapper #default="{ cls, wrapper }" v-bind="wrapperProps" wrapper-extra-class="rounded">
       <div class="row">

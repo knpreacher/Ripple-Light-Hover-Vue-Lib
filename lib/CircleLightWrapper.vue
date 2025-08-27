@@ -46,19 +46,29 @@ function updateRippleItems() {
     const children = rippleContainer.value.querySelectorAll('.ripple-light-item__wrapper')
     for (let i = 0; i < children.length; i++) {
         const el = children[i] as HTMLElement
-        el.style.setProperty('--x', `${mousePositionX - el.offsetLeft}px`)
-        el.style.setProperty('--y', `${mousePositionY - el.offsetTop + window.scrollY}px`)
+        const rect = el.getBoundingClientRect()
+        el.style.setProperty('--x', `${mousePositionX - rect.left}px`)
+        el.style.setProperty('--y', `${mousePositionY - rect.top}px`)
+        // el.style.setProperty('--x', `${mousePositionX - el.offsetLeft + window.scrollX}px`)
+        // el.style.setProperty('--y', `${mousePositionY - el.offsetTop + window.scrollY}px`)
     }
     requestAnimationFrame(updateRippleItems)
 }
 
+function onMouseLeave() {
+    mousePositionX = INITIAL_POSITION_VALUE
+    mousePositionY = INITIAL_POSITION_VALUE
+}
+
 onMounted(() => {
     document.addEventListener('mousemove', mouseMove)
+    document.addEventListener('mouseleave', onMouseLeave)
     updateRippleItems()
 })
 
 onUnmounted(() => {
     document.removeEventListener('mousemove', mouseMove)
+    document.removeEventListener('mouseleave', onMouseLeave)
 })
 
 const wrapperComponent = defineComponent((_props, ctx) => {
